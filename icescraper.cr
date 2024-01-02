@@ -34,7 +34,6 @@ class Spider
   end
 
   private def parse_page(html)
-    #puts "Parsing page: #{html.size} bytes"
     links = extract_links(html).map { |link| link.gsub(",", "\n") }
     puts "Extracted links:\n#{links.join("\n ")}"  
   end
