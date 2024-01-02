@@ -3,7 +3,7 @@ A web spider written in Crystal
 
 Right now I have issues parsing out the html tags around the urls:
 
-$ crystal my_spider.cr
+```$ crystal my_spider.cr
 Extracted links:
 <a class=gb1 href="https://www.google.com/imghp?hl=pt-BR&tab=wi">
  <a class=gb1 href="https://maps.google.com.br/maps?hl=pt-BR&tab=wl">
@@ -45,8 +45,9 @@ Unhandled exception: Invalid URI: bad port at character 43 (URI::Error)
   from /lib/x86_64-linux-gnu/libc.so.6 in '__libc_start_main'
   from /home/ph33r/.cache/crystal/crystal-run-my_spider.tmp in '_start'
   from ???
-
+```
 I'm also getting errors when a redirect is found:
 
-$ crystal my_spider.cr
+```$ crystal my_spider.cr
 Failed to fetch https://google.com - 301
+```
