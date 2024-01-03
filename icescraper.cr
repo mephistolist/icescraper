@@ -14,36 +14,57 @@ class Spider
   private def crawl_page(url)
     return if @visited_urls.includes?(url)
 
+    # Skip URLs that don't start with http or https
+    return unless url =~ /^https?:\/\//
+
     begin
-      response = HTTP::Client.get(url)
+      response = nil
 
-      if response.success?
-        parse_page(response.body.to_s)
+      5.times do
+        response = HTTP::Client.get(url)
+        
+        break unless response && (300..399).includes?(response.status_code) # Don't follow redirects
 
-        @visited_urls << url
+        url = response.headers["Location"] || url
+      end
 
-        # Extract links and crawl them
-        links = extract_links(response.body.to_s)
-        links.each { |link| crawl_page(link) }
+      if response
+        if response.success?
+          parse_page(response.body.to_s)
+
+          @visited_urls << url
+
+          # Extract links and crawl them
+          links = extract_links(response.body.to_s)
+          links.each { |link| crawl_page(link) }
+        else
+          puts "Failed to fetch #{url} - #{response.status_code}"
+        end
       else
-        puts "Failed to fetch #{url} - #{response.status_code}"
+        puts "Failed to fetch #{url} - No response"
       end
     rescue Socket::Addrinfo::Error
       puts "Failed to lookup hostname for #{url}"
+    rescue ex
+      if ex.message =~ /Timeout/
+        puts "Timed out while fetching #{url}"
+      else
+        puts "An unexpected error occurred: #{ex.message}"
+      end
     end
   end
 
   private def parse_page(html)
+    #puts "Parsing page: #{html.size} bytes"
     links = extract_links(html).map { |link| link.gsub(",", "\n") }
-    puts "Extracted links:\n#{links.join("\n ")}"  
+    puts "Extracted links:\n#{links.join("\n ")}"
   end
 
   private def extract_links(html)
-    links = html.scan(/<a[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>/).map { |match| match[0] }
-    links.uniq
+    links = html.scan(/href="([^"]+)"/).map { |match| match[0] }
+    links.uniq.map { |link| link.split('"')[1] }
   end
 end
 
-# Example usage
-spider = Spider.new("https://www.google.com")
+spider = Spider.new("https://google.com")
 spider.crawl
