@@ -23,7 +23,7 @@ class Spider
       5.times do
         response = HTTP::Client.get(url)
         
-        break unless response && (300..399).includes?(response.status_code) # Don't follow redirects
+        break unless response && (300..399).includes?(response.status_code)
 
         url = response.headers["Location"] || url
       end
