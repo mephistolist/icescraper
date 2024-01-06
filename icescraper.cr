@@ -88,18 +88,15 @@ option_parser = OptionParser.new do |parser|
   
   parser.on("-h", "--help", "Show help message") do
     print_logo
-    puts parser
+    puts parser # Display the usage information
     exit
   end
 
-  parser.on("-d", "--domain DOMAIN", "Specify a domain or host") do |domain|
+  parser.on("-d", "--domain DOMAIN", "Specify a domain or host. Use http:// if no SSL is used.") do |domain|
     run_after_logo(domain)
     exit
   end
 
-  parser.on("-o", "--output FILE", "Path to file where urls are saved") do |file|
-    puts "THIS IS THE FILE OPTION: #{file}"
-  end
 end
 
 # Parse the command line arguments
@@ -117,6 +114,6 @@ if args && args.size == 1
   puts "Start URL specified: #{start_url}"
 else
   print_logo
-  puts option_parser
+  puts option_parser # Display the usage information
   exit
 end
