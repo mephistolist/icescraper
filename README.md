@@ -28,4 +28,4 @@ If you get duplicates after that you can sort only unique entries with the follo
 
 ```$ sort log | uniq -c | sort -nr```
 
-Crystal did not have the ability to implement some of the features I wanted to use here at this time. Personally I just love the syntax, simplicity and speed that only Crystal brings to the table and wanted to make something with it. I may add more to this later, but for now its just an exersize in using Crystal.
+Crystal is a newer language and did not have the ability to implement some of the features I wanted to use here at this time. Personally I just love the syntax, simplicity and speed that only Crystal brings to the table and wanted to make something with it. I may add more to this later as the language matures, but for now this is just an exersize in using Crystal.
