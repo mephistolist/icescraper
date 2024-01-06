@@ -22,7 +22,7 @@ If example.com or any domain is used, the spider will assume SSL is in use. If y
 
 If you let the program run a few minutes, you may find thousands of entries being generated. You can save its output to a file from the command-line like this:
 
-```$ ./to_run -d google.com > log```
+```$ ./icescraper -d domain.com > log```
 
 If you get duplicates after that you can sort only unique entries with the following:
 
