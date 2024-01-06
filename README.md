@@ -15,7 +15,8 @@ The usage can be found with -h or with no arguments given:
 
 Usage: icescraper -d example.com
     -h, --help                       Show help message
-    -d, --domain DOMAIN              Specify a domain or host. Use http:// if no SSL is used.```
+    -d, --domain DOMAIN              Specify a domain or host. Use http:// if no SSL is used.
+```
 
 If example.com or any domain is used, the spider will assume SSL is in use. If you happen to find a site with no SSL, http://example.com will need to be used with the -d option. 
 
