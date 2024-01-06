@@ -88,7 +88,7 @@ option_parser = OptionParser.new do |parser|
   
   parser.on("-h", "--help", "Show help message") do
     print_logo
-    puts parser # Display the usage information
+    puts parser
     exit
   end
 
@@ -117,6 +117,6 @@ if args && args.size == 1
   puts "Start URL specified: #{start_url}"
 else
   print_logo
-  puts option_parser # Display the usage information
+  puts option_parser
   exit
 end
