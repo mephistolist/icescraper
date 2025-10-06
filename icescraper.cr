@@ -227,7 +227,7 @@ option_parser = OptionParser.new do |parser|
     exit
   end
 
-  parser.on("-d", "--domain DOMAIN", "Specify a domain or host. Use http:// if no SSL is used.") do |d|
+  parser.on("-d", "--domain DOMAIN", "Specify a domain or host.") do |d|
     domain_arg = d
   end
 end
