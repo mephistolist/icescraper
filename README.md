@@ -24,8 +24,4 @@ If you let the program run a few minutes, you may find thousands of entries bein
 
 ```$ ./icescraper -d domain.com > log```
 
-If you get duplicates after that you can sort only unique entries with the following:
-
-```$ sort log | uniq```
-
 Crystal is a newer language and did not have the ability to implement some of the features I wanted to use here at this time. Personally I just love the syntax, simplicity and speed that only Crystal brings to the table and wanted to make something with it. I may add more to this later as the language matures, but for now this is just an exersize in using Crystal.
