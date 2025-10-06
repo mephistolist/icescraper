@@ -18,8 +18,6 @@ Usage: icescraper -d example.com
     -d, --domain DOMAIN              Specify a domain or host. Use http:// if no SSL is used.
 ```
 
-If example.com or any domain is used, the spider will assume SSL is in use. If you happen to find a site with no SSL, http://example.com will need to be used with the -d option. 
-
-If you let the program run a few minutes, you may find thousands of entries being generated. You can save its output to a file from the command-line like this:
+You can save its output to a file from the command-line like this:
 
 ```$ ./icescraper -d domain.com > log```
