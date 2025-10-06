@@ -15,7 +15,7 @@ The usage can be found with -h or with no arguments given:
 
 Usage: icescraper -d example.com
     -h, --help                       Show help message
-    -d, --domain DOMAIN              Specify a domain or host. Use http:// if no SSL is used.
+    -d, --domain DOMAIN              Specify a domain or host.
 ```
 
 You can save its output to a file from the command-line like this:
