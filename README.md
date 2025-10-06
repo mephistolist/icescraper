@@ -23,5 +23,3 @@ If example.com or any domain is used, the spider will assume SSL is in use. If y
 If you let the program run a few minutes, you may find thousands of entries being generated. You can save its output to a file from the command-line like this:
 
 ```$ ./icescraper -d domain.com > log```
-
-Crystal is a newer language and did not have the ability to implement some of the features I wanted to use here at this time. Personally I just love the syntax, simplicity and speed that only Crystal brings to the table and wanted to make something with it. I may add more to this later as the language matures, but for now this is just an exersize in using Crystal.
